@@ -18,9 +18,15 @@
     "type": "git",
     "url": "git://github.com/harelmo/jest-reporter-teamcity.git"
   },
+  "scripts": {
+    "lint": "eslint ."
+  },
   "bugs": {
     "url": "https://github.com/harelmo/jest-reporter-teamcity/issues"
   },
   "main": "index.js",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.23.0"
+  }
 }
