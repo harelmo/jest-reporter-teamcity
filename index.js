@@ -59,10 +59,12 @@ function logTestResult(suite, testResult) {
   console.log("##teamcity[testStarted name='%s']", name);
 
   if (testResult.status === "failed") {
+    const jestProcessId = "(jest pid: " + process.env.JEST_PROCESS_ID + ")";
+
     const details = testResult.failureMessages.length > 0
       ? testResult.failureMessages[0]
       : "No details available";
-    console.log("##teamcity[testFailed name='%s' message='FAILED' details='%s']", name, escape(details));
+    console.log("##teamcity[testFailed name='%s' message='FAILED' details='%s']", name, escape(jestProcessId + " " + details));
   }
 
   if (testResult.status === "pending" || testResult.status === "skipped") {
